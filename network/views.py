@@ -18,7 +18,7 @@ def get_device_stats (request: HttpRequest, device_id) -> HttpResponse:
     device = Device.objects.get(pk=device_id)
     if request.method =='GET':
         driver = get_network_driver(device.napalm_driver)
-        with driver(device.host, device.username, device.password, optional_args={'port': 2022}) as device_conn:
+        with driver(device.host, device.username, device.password, optional_args={'port': 22}) as device_conn:
             interfaces = device_conn.get_interfaces()
         context = {
             'device': device,
