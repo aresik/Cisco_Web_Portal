@@ -8,8 +8,8 @@ from .models import Device
 def index(request: HttpRequest) -> HttpResponse:
     devices = Device.objects.all()
     context = {
-        'title': 'Hello Stream!',
-        'name': 'Paul',
+        'title': 'Network Controller!',
+        'name': 'Welcome',
         'devices': devices,
     }
     return render(request, 'base.html', context)
